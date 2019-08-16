@@ -11,6 +11,7 @@
       <ImageView fx:id="image" fitHeight="375.0" fitWidth="389.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <DatePicker fx:id="datePicker" layoutX="408.0" layoutY="14.0" onAction="#updateDate" prefHeight="49.0" prefWidth="119.0" />
       <Button fx:id="enhancedButton" layoutX="408.0" layoutY="76.0" mnemonicParsing="false" onAction="#enhanceImage" prefHeight="27.0" prefWidth="119.0" text="Enhanced" />
-      <DialogPane fx:id="feedbackPane" layoutX="407.0" layoutY="118.0" prefHeight="173.0" prefWidth="183.0" />
+      <DialogPane fx:id="feedbackPane" layoutX="403.0" layoutY="186.0" prefHeight="173.0" prefWidth="183.0" />
+      <Button fx:id="bWButton" layoutX="408.0" layoutY="116.0" mnemonicParsing="false" onAction="#makeBlackAndWhite" prefHeight="27.0" prefWidth="119.0" text="Black and white" />
    </children>
 </AnchorPane>
