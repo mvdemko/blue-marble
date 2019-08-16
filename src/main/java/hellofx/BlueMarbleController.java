@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 
 public class BlueMarbleController {	
 	private boolean isEnhanced;
+	private boolean isBlackAndWhite;
 	
 	@FXML
 	private ImageView image;
@@ -34,22 +35,24 @@ public class BlueMarbleController {
 	
 	@FXML
 	void updateDate(ActionEvent event) {
+		isBlackAndWhite = false;
 		isEnhanced = false;
-		populateImage(false);
+		populateImage();
 	}
 	
 	@FXML
 	void enhanceImage(ActionEvent event) {
 		isEnhanced = true;
-		populateImage(false);
+		populateImage();
 	}
 	
 	@FXML
 	void makeBlackAndWhite(ActionEvent event) {
-		populateImage(true);
+		isBlackAndWhite = true;
+		populateImage();
 	}
 	
-	void populateImage(boolean isBlackAndWhite) {
+	void populateImage() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
 		BlueMarble blueMarble = new BlueMarble();
@@ -75,11 +78,13 @@ public class BlueMarbleController {
 			blueMarble.setDate(selectedDate);
 			blueMarble.setEnhanced(isEnhanced);
 			image.setImage(new Image(blueMarble.getImage()));
+			ColorAdjust colorAdjust = new ColorAdjust();
 			if (isBlackAndWhite) {
-				ColorAdjust colorAdjust = new ColorAdjust();
 		        colorAdjust.setSaturation(-1);
-		        image.setEffect(colorAdjust);
+			} else {
+		        colorAdjust.setSaturation(0);
 			}
+			image.setEffect(colorAdjust);
 		}
 	}
 
